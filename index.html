@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxo Ágil BPO | BPO Financeiro, Facilities e Automação de Processos</title>
+    <meta name="description" content="Terceirização financeira, gestão de facilities e automação de processos para pequenas empresas e clínicas no Simples Nacional.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-soft: #eff6ff;
+            --emerald: #10b981;
+            --emerald-soft: #ecfdf5;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-600: #475569;
+            --slate-800: #1e293b;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--slate-200);
+            font-size: 0.85rem;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-bar-contact {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar-contact a {
+            color: var(--slate-200);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .top-bar-contact a:hover {
+            color: var(--emerald);
+        }
+
+        /* Navigation */
+        navbar {
+            display: block;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--slate-200);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--accent), var(--emerald));
+            color: var(--white);
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--slate-600);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-success {
+            background-color: #25d366;
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+        }
+
+        .btn-success:hover {
+            background-color: #1ebc57;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--slate-200);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--slate-100);
+            border-color: var(--slate-600);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--white);
+            padding: 80px 20px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(16, 185, 129, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background-color: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.4);
+            color: #93c5fd;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            padding: 30px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--emerald);
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--emerald);
+        }
+
+        .workflow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .workflow-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(37, 99, 235, 0.2);
+            color: #60a5fa;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .workflow-text h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .workflow-text p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--white);
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--slate-200);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            color: var(--slate-600);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* DNA & About Section */
+        .about-section {
+            padding: 90px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-subtitle {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .dna-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .dna-card {
+            background: var(--white);
+            border: 1px solid var(--slate-200);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .dna-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+
+        .dna-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .dna-card h4 {
+            font-size: 1.05rem;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .dna-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: var(--slate-100);
+            padding: 90px 20px;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--slate-200);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-6px);
+            border-color: var(--accent);
+        }
+
+        .service-card.highlight {
+            border: 2px solid var(--accent);
+        }
+
+        .service-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-lg);
+            background: var(--accent-soft);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .service-card.highlight .service-icon {
+            background: linear-gradient(135deg, var(--accent), var(--emerald));
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--slate-800);
+            margin-bottom: 10px;
+        }
+
+        .service-list i {
+            color: var(--emerald);
+            font-size: 0.9rem;
+        }
+
+        /* Automation Feature Spotlight */
+        .spotlight-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--white);
+            padding: 90px 20px;
+        }
+
+        .spotlight-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .code-box {
+            background-color: #090d16;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            color: #a7f3d0;
+            box-shadow: var(--shadow-xl);
+            overflow-x: auto;
+        }
+
+        .code-title {
+            color: #60a5fa;
+            margin-bottom: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 8px;
+        }
+
+        /* How it Works / Kanban */
+        .process-section {
+            padding: 90px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            background: var(--white);
+            border: 1px solid var(--slate-200);
+            padding: 28px 20px;
+            border-radius: var(--radius-lg);
+            position: relative;
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            color: var(--white);
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .process-step h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .process-step p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            background-color: var(--slate-100);
+            padding: 90px 20px;
+        }
+
+        .comparison-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 18px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--slate-200);
+        }
+
+        .comparison-table th {
+            background-color: var(--primary);
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .comparison-table th.highlight-col {
+            background-color: var(--accent);
+        }
+
+        .comparison-table td i.fa-check {
+            color: var(--emerald);
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td i.fa-times {
+            color: #ef4444;
+            font-size: 1.1rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 90px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--white);
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .contact-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            padding: 48px 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #090d16;
+            color: #94a3b8;
+            padding: 40px 20px 20px;
+            font-size: 0.88rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero-container, .spotlight-container {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .top-bar {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <span><i class="fa-solid fa-shield-halved"></i> Terceirização Financeira, Facilities e Automação para PMEs</span>
+        <div class="top-bar-contact">
+            <a href="https://wa.me/5541999999999" target="_blank"><i class="fa-brands fa-whatsapp"></i> (41) 99999-9999</a>
+            <a href="mailto:contato@fluxoagilbpo.com.br"><i class="fa-regular fa-envelope"></i> contato@fluxoagilbpo.com.br</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <navbar>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <span>Fluxo Ágil <span style="color: var(--accent); font-weight:400;">BPO</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#automacao">Automação</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="https://wa.me/5541999999999?text=Olá,%20gostaria%20de%20agendar%20um%20diagnóstico%20gratuito" target="_blank" class="btn btn-success">
+                <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+            </a>
+        </div>
+    </navbar>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div>
+                <div class="badge"><i class="fa-solid fa-bolt"></i> Foco em Empresas no Simples Nacional</div>
+                <h1 class="hero-title">Seu Departamento Financeiro, Facilities e <span>Automações Inteligentes</span></h1>
+                <p class="hero-subtitle">Elimine o caos das contas a pagar, emissão de notas e rotinas burocráticas. A Fluxo Ágil cuida da sua operação e você só aprova no app do banco.</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/5541999999999?text=Quero%20agendar%20um%20diagnostico%20gratuito" target="_blank" class="btn btn-primary">
+                        Agendar Diagnóstico Gratuito <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#servicos" class="btn btn-outline" style="color: var(--white); border-color: rgba(255,255,255,0.3);">
+                        Conhecer Soluções
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Live Card Preview -->
+            <div class="hero-card">
+                <div class="hero-card-header">
+                    <div>
+                        <strong style="color:var(--white); font-size: 1rem;">Fluxo Operacional Ativo</strong>
+                        <p style="font-size:0.8rem; color:#94a3b8;">Painel de Controle em Tempo Real</p>
+                    </div>
+                    <div class="status-badge">
+                        <span class="status-dot"></span> Operação 100% OK
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="workflow-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="workflow-text">
+                        <h4>1. Solicitação via WhatsApp</h4>
+                        <p>Envio rápido de boletos, notas ou pedidos de cotação.</p>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="workflow-icon" style="background:rgba(16,185,129,0.2); color:#34d399;"><i class="fa-solid fa-gears"></i></div>
+                    <div class="workflow-text">
+                        <h4>2. Processamento & Automação</h4>
+                        <p>Lançamento no Conta Azul e scripts de conciliação diária.</p>
+                    </div>
+                </div>
+
+                <div class="workflow-step" style="margin-bottom:0;">
+                    <div class="workflow-icon" style="background:rgba(245,158,11,0.2); color:#fbbf24;"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="workflow-text">
+                        <h4>3. Aprovação em 1 Clique</h4>
+                        <p>Você só autoriza o pagamento no app do seu banco no fim do dia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>60%+</h3>
+                <p>Economia vs. Contratação CLT</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Autonomia e Segurança Bancária</p>
+            </div>
+            <div class="stat-item">
+                <h3>0 min</h3>
+                <p>Tempo Perdido com Digitação</p>
+            </div>
+            <div class="stat-item">
+                <h3>DRE</h3>
+                <p>Relatório de Lucro Real Mensal</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DNA & About Section -->
+    <section class="about-section" id="sobre">
+        <div class="section-header">
+            <span class="section-subtitle">Nosso DNA Consultivo</span>
+            <h2 class="section-title">A Estrutura de uma Grande Corporação com a Agilidade que Sua PME Precisa</h2>
+            <p class="section-desc">Atuamos no gerenciamento completo do fluxo financeiro e operacional. Entregamos muito mais do que tarefas: entregamos clareza e previsibilidade de caixa.</p>
+        </div>
+
+        <div class="dna-grid">
+            <div class="dna-card">
+                <i class="fa-solid fa-heart dna-icon"></i>
+                <h4>Paixão</h4>
+                <p>Dedicação total ao crescimento e organização do pequeno negócio.</p>
+            </div>
+            <div class="dna-card">
+                <i class="fa-solid fa-award dna-icon"></i>
+                <h4>Credibilidade</h4>
+                <p>Processos rigorosos de conferência e segurança de dados.</p>
+            </div>
+            <div class="dna-card">
+                <i class="fa-solid fa-handshake dna-icon"></i>
+                <h4>Parceria</h4>
+                <p>Lado a lado com você diariamente no canal de atendimento.</p>
+            </div>
+            <div class="dna-card">
+                <i class="fa-solid fa-microchip dna-icon"></i>
+                <h4>Inovação</h4>
+                <p>Automações em Python e RPA para eliminar erros manuais.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="servicos">
+        <div class="services-container">
+            <div class="section-header">
+                <span class="section-subtitle">Nossas Soluções</span>
+                <h2 class="section-title">Tudo o que sua Empresa Precisa em Um Só Lugar</h2>
+                <p class="section-desc">Escolha a combinação ideal de serviços para terceirizar a burocracia da sua empresa.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1: BPO Financeiro -->
+                <div class="service-card">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-wallet"></i></div>
+                        <h3>BPO Financeiro Completo</h3>
+                        <p>Gestão diária da movimentação financeira do seu negócio para manter a saúde do seu caixa impecável.</p>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Gestão de Contas a Pagar (CP) e Agendamentos</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Contas a Receber (CR), NFs e Emissão de Boletos</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Conciliação Bancária Diária (Pix, Cartão e Extratos)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Régua de Cobrança Amigável para Inadimplentes</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Emissão de DRE Gerencial de Lucro Líquido</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5541999999999?text=Quero%20saber%20mais%20sobre%20o%20BPO%20Financeiro" target="_blank" class="btn btn-outline" style="width: 100%;">Saber Mais</a>
+                </div>
+
+                <!-- Service 2: BPO Facilities & Compras -->
+                <div class="service-card">
+                    <div>
+                        <div class="service-icon" style="background:#fef3c7; color:#d97706;"><i class="fa-solid fa-building-user"></i></div>
+                        <h3>BPO Operacional & Facilities</h3>
+                        <p>Tiramos a correria operacional do seu dia a dia. Cuidamos das cotações e manutenções do seu espaço.</p>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Cotação e Orçamento com Fornecedores</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Agendamento de Manutenção Predial e Reparos</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Padronização de Compras Operacionais</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Organização e envio de documentos ao Contador</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5541999999999?text=Quero%20saber%20mais%20sobre%20Facilities" target="_blank" class="btn btn-outline" style="width: 100%;">Saber Mais</a>
+                </div>
+
+                <!-- Service 3: Automação & Desenho de Processos -->
+                <div class="service-card highlight">
+                    <span class="service-tag">Diferencial Técnico</span>
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                        <h3>Automação & Desenho de Fluxos</h3>
+                        <p>Nosso grande diferencial no mercado: criamos robôs e scripts customizados para otimizar suas rotinas.</p>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Scripts Python para relatórios diários em PDF/Excel</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Automação de leitura de comprovantes (OCR)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Mapeamento de Processos em Kanban (Trello/PlayBPO)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Integrações de Sistemas (Conta Azul, Omie, WhatsApp)</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5541999999999?text=Quero%20saber%20mais%20sobre%20Automacao" target="_blank" class="btn btn-primary" style="width: 100%;">Solicitar Automação</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spotlight Section: Automation Power -->
+    <section class="spotlight-section" id="automacao">
+        <div class="spotlight-container">
+            <div>
+                <span style="color:#60a5fa; font-weight:700; text-transform:uppercase; font-size:0.85rem;">Engenharia de Processos</span>
+                <h2 style="font-size:2.2rem; margin: 12px 0 20px; font-weight:800;">Eliminamos a Digitação Manual com Scripts Próprios</h2>
+                <p style="color:#94a3b8; font-size:1.05rem; margin-bottom:24px;">
+                    Diferente de BPOs tradicionais que apenas lançam papéis manualmente, desenvolvemos rotinas automatizadas para consolidar relatórios, emitir comprovantes e enviar dados diretamente no seu e-mail ou WhatsApp todos os dias.
+                </p>
+                <a href="https://wa.me/5541999999999?text=Quero%20uma%20demonstracao%20das%20automacoes" target="_blank" class="btn btn-success">
+                    <i class="fa-brands fa-whatsapp"></i> Ver Demonstração de Automação
+                </a>
+            </div>
+
+            <div class="code-box">
+                <div class="code-title">
+                    <span><i class="fa-solid fa-terminal"></i> script_relatorio_diario.py</span>
+                    <span style="color:#34d399;">EXECUTANDO</span>
+                </div>
+                <code>
+                    <span style="color:#f472b6;">import</span> pandas <span style="color:#f472b6;">as</span> pd<br>
+                    <span style="color:#f472b6;">from</span> fluxoagil <span style="color:#f472b6;">import</span> BPOAutomation<br><br>
+                    <span style="color:#60a5fa;"># Coleta extrato bancario e concilia</span><br>
+                    df = BPOAutomation.get_daily_bank_statement()<br>
+                    status = BPOAutomation.reconcile_accounts(df)<br><br>
+                    <span style="color:#60a5fa;"># Gera relatorio em PDF e dispara WhatsApp</span><br>
+                    pdf = BPOAutomation.generate_dre_summary(df)<br>
+                    BPOAutomation.send_whatsapp_report(pdf, target=<span style="color:#fbbf24;">"Cliente_CEO"</span>)<br><br>
+                    <span style="color:#34d399;">>>> Relatório enviado com sucesso em 2.4s!</span>
+                </code>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process / How it Works Section -->
+    <section class="process-section" id="como-funciona">
+        <div class="section-header">
+            <span class="section-subtitle">Simplicidade Extrema</span>
+            <h2 class="section-title">Como Funciona no Seu Dia a Dia</h2>
+            <p class="section-desc">Você não precisa aprender a usar sistemas difíceis. Mantenha seu foco nas vendas enquanto a Fluxo Ágil roda a operação.</p>
+        </div>
+
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>Envio via WhatsApp</h4>
+                <p>Tire foto do boleto, nota ou faça o pedido diretamente no seu grupo de atendimento exclusivo.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>Lançamento & Agendamento</h4>
+                <p>Nossa equipe valida o documento, registra no sistema (Conta Azul) e faz o agendamento no seu banco.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>Aprovação Segura</h4>
+                <p>No fim do dia, você recebe um aviso e apenas autoriza com sua biometria/senha no app do banco.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>Relatório & DRE</h4>
+                <p>Acompanhe o lucro real do mês e receba tudo pronto para o seu contador no dia 1º.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <div class="section-header">
+                <span class="section-subtitle">Por que Terceirizar?</span>
+                <h2 class="section-title">Comparativo: Funcionário CLT vs. Fluxo Ágil BPO</h2>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Critério</th>
+                        <th>Assistente CLT Interno</th>
+                        <th class="highlight-col">Fluxo Ágil BPO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Custo Mensal Estimado</strong></td>
+                        <td>R$ 2.800,00+ (Salário + Encargos)</td>
+                        <td><strong style="color:var(--emerald);">A partir de R$ 800,00/mês</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Risco Trabalhista e Férias</strong></td>
+                        <td><i class="fa-solid fa-times"></i> Alto (Férias, 13º, Rescisão)</td>
+                        <td><i class="fa-solid fa-check"></i> Zero risco (Contrato PJ)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Softwares Financeiros inclusos</strong></td>
+                        <td><i class="fa-solid fa-times"></i> Custo adicional à parte</td>
+                        <td><i class="fa-solid fa-check"></i> Licença inclusa no pacote</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Automação & Programação</strong></td>
+                        <td><i class="fa-solid fa-times"></i> Execução manual passível de erros</td>
+                        <td><i class="fa-solid fa-check"></i> Scripts e automações em Python</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CONTINUIDADE</strong></td>
+                        <td><i class="fa-solid fa-times"></i> A operação para nas férias/faltas</td>
+                        <td><i class="fa-solid fa-check"></i> Operação 100% contínua</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="section-header">
+            <span class="section-subtitle">Dúvidas Frequentes</span>
+            <h2 class="section-title">Perguntas Frequentes</h2>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Vocês têm acesso para movimentar ou transferir dinheiro do meu banco? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">
+                <strong>NÃO.</strong> O seu dinheiro fica 100% seguro. Nós utilizamos um acesso restrito de "Assistente Financeiro" apenas para consultar o extrato e realizar o <strong>agendamento</strong> das contas. A aprovação e liberação do pagamento só acontece quando você clica no seu aplicativo do banco.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Minha empresa é pequena e optante pelo Simples Nacional. O BPO serve para mim? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">
+                Com certeza! Atendemos especialmente micro e pequenas empresas, clínicas, escritórios de advocacia e prestadores de serviço. Se você perde mais de 30 minutos por dia organizando papéis ou agendando boletos, o BPO se paga no primeiro mês.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Quais softwares vocês utilizam? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">
+                Trabalhamos com os melhores ERPs do mercado brasileiro, como <strong>Conta Azul, Omie e Nibo</strong>. Além disso, utilizamos o <strong>PlayBPO</strong> para gestão de Kanban e desenvolvemos automações próprias de extração de dados.
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-section">
+        <div class="contact-card">
+            <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:16px;">Pronto para Organizar o Financeiro da sua Empresa?</h2>
+            <p style="color:#94a3b8; font-size:1.1rem; margin-bottom:32px;">Agende uma conversa de 20 minutos com nossos especialistas. Vamos analisar a sua rotina atual e apresentar um plano prático de terceirização.</p>
+            <a href="https://wa.me/5541999999999?text=Olá!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20diagnostico" target="_blank" class="btn btn-success" style="font-size:1.1rem; padding: 16px 36px;">
+                <i class="fa-brands fa-whatsapp"></i> Agendar Diagnóstico Gratuito Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <span style="color:var(--white);">Fluxo Ágil <span style="color: var(--accent); font-weight:400;">BPO</span></span>
+            </div>
+            <div>
+                <span><i class="fa-solid fa-location-dot"></i> Curitiba / PR — Atendimento em todo o Brasil</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Fluxo Ágil BPO. Todos os direitos reservados. Gestão Financeira, Facilities e Automação de Processos.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
